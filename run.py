@@ -82,7 +82,7 @@ def get_distribution(cost, weights):
     rounded_costs = [int(c) for c in weighted_costs]
 
     while sum(rounded_costs) < cost:
-        rres_diffs = []
+        max_improve = None
         for i, rounded_cost in enumerate(rounded_costs):
             if weights[i] > 0:
                 # Get modified rounded cost
@@ -91,13 +91,12 @@ def get_distribution(cost, weights):
                 # Obtain relative rounded error (rre) change
                 rre = abs(weighted_costs[i] - rounded_cost) / weights[i]
                 m_rre = abs(weighted_costs[i] - m_rounded_cost) / weights[i]
-                rres_diffs.append((i, rre - m_rre))
-    
-        # Sort
-        rres_diffs.sort(key=lambda tup: tup[1], reverse=True)
+                diff = rre - m_rre
+                if max_improve is None or diff > max_improve[1]:
+                    max_improve = (i, diff)
 
         # Modify
-        rounded_costs[rres_diffs[0][0]] += 1
+        rounded_costs[max_improve[0]] += 1
 
     return rounded_costs
 
@@ -323,4 +322,3 @@ if __name__ == '__main__':
             print('Not solvable')
         else:
             beautiful_print(actions, capacities)
-
