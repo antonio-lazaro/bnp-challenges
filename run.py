@@ -1,5 +1,5 @@
 """
-Solutions script for BNP Interview Challenges.
+Solutions script for proposed challenges.
 """
 
 from math import fsum
@@ -269,7 +269,7 @@ if __name__ == '__main__':
         print('-----------')
         print('Description: Test if the string is balanced.')
 
-        input_str = str(raw_input('Enter the string to test: '))
+        input_str = str(input('Enter the string to test: '))
 
         print('Balanced' if is_balanced(input_str) else 'Unbalanced')
 
@@ -286,10 +286,10 @@ if __name__ == '__main__':
             (Write each weight press enter. To finish just press enter with an empty input):
             """))
         weights = []
-        w = raw_input()
+        w = input()
         while len(w) > 0:
             weights.append(float(w))
-            w = raw_input()
+            w = input()
 
         # Result
         result = get_distribution(cost, weights)
@@ -309,10 +309,10 @@ if __name__ == '__main__':
             (Write each capacity and press enter. To finish just press enter with an empty input):
             """))
         capacities = []
-        c = raw_input()
+        c = input()
         while len(c) > 0:
             capacities.append(int(c))
-            c = raw_input()
+            c = input()
 
         # Result
         actions = get_optimal_sequence(capacities, target)

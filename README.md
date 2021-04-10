@@ -1,9 +1,9 @@
 
-# BNP Interview Challenges
+# Challenges
 
 ## Description
 
-Solution to the challenges proposed in the interview for BNP PARIBAS.
+Solution to the proposed challenges.
 
 **Environment**
 Python `3.9.2`.
